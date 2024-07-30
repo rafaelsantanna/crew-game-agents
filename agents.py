@@ -98,3 +98,14 @@ class GameAgents():
             allow_delegation=True,
             verbose=True,
         )
+
+    def coordinator_agent(self):
+        return Agent(
+            role='Coordinator',
+            goal='Ensure all tasks are integrated and the project runs smoothly',
+            backstory=dedent("""
+                You are the coordinator, responsible for overseeing the integration of all aspects of the game development. Your goal is to ensure that all agents are working together effectively and the project runs smoothly.
+            """),
+            allow_delegation=True,
+            verbose=True,
+        )

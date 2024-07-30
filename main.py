@@ -21,6 +21,7 @@ ui_ux_designer_agent = agents.ui_ux_designer_agent()
 level_designer_agent = agents.level_designer_agent()
 ai_specialist_agent = agents.ai_specialist_agent()
 project_manager_agent = agents.project_manager_agent()
+coordinator_agent = agents.coordinator_agent()  # Novo agente coordenador
 
 # Create Tasks
 design_game = tasks.design_task(game_designer_agent, game)
@@ -31,6 +32,7 @@ design_ui_ux = tasks.design_ui_ux_task(ui_ux_designer_agent, game)
 design_levels = tasks.design_levels_task(level_designer_agent, game)
 develop_ai = tasks.develop_ai_task(ai_specialist_agent, game)
 manage_project = tasks.manage_project_task(project_manager_agent, game)
+coordinate_all = tasks.coordinate_all_task(coordinator_agent, game)  # Nova tarefa de coordenação
 
 # Create Crew responsible for the game development
 crew = Crew(
@@ -42,7 +44,8 @@ crew = Crew(
         ui_ux_designer_agent,
         level_designer_agent,
         ai_specialist_agent,
-        project_manager_agent
+        project_manager_agent,
+        coordinator_agent  # Inclui o novo agente coordenador
     ],
     tasks=[
         design_game,
@@ -52,7 +55,8 @@ crew = Crew(
         design_ui_ux,
         design_levels,
         develop_ai,
-        manage_project
+        manage_project,
+        coordinate_all  # Inclui a nova tarefa de coordenação
     ],
     verbose=True
 )

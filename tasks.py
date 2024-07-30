@@ -123,3 +123,18 @@ class GameTasks():
             agent=agent,
             expected_output="The final output should be a project management report."
         )
+
+    def coordinate_all_task(self, agent, game):
+        return Task(
+            description=dedent(f"""You are coordinating the entire game project, these are the instructions:
+                Instructions
+                ------------
+                {game}
+
+                Ensure all tasks and agents are working together effectively, integrating all parts of the project.
+
+                Your Final answer must be a comprehensive coordination report.
+            """),
+            agent=agent,
+            expected_output="The final output should be a comprehensive coordination report."
+        )
